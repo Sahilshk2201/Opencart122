@@ -1,0 +1,14 @@
+2025-07-10 12:20:37 INFO  TC001_AccountRegistrationTest:15 - *********Starting TC001_AccountRegistrationTest 
+2025-07-10 12:20:38 INFO  TC001_AccountRegistrationTest:20 - *********clicked on homepage
+2025-07-10 12:20:39 INFO  TC001_AccountRegistrationTest:23 - *********clicked on register
+2025-07-10 12:20:39 INFO  TC001_AccountRegistrationTest:26 - *********Provding customer information
+2025-07-10 12:20:41 INFO  TC001_AccountRegistrationTest:37 - *****validating expected message
+2025-07-10 12:20:41 INFO  TC001_AccountRegistrationTest:42 - ****Finished TC001_AccountRegistrationTest
+2025-07-10 12:20:45 INFO  TC002_LoginTest:14 - **********Starting TC002_LoginTest 
+2025-07-10 20:19:08 INFO  TC001_AccountRegistrationTest:15 - *********Starting TC001_AccountRegistrationTest 
+2025-07-10 20:19:09 INFO  TC001_AccountRegistrationTest:20 - *********clicked on homepage
+2025-07-10 20:19:10 INFO  TC001_AccountRegistrationTest:23 - *********clicked on register
+2025-07-10 20:19:10 INFO  TC001_AccountRegistrationTest:26 - *********Provding customer information
+2025-07-10 20:19:12 INFO  TC001_AccountRegistrationTest:37 - *****validating expected message
+2025-07-10 20:19:12 INFO  TC001_AccountRegistrationTest:42 - ****Finished TC001_AccountRegistrationTest
+2025-07-10 20:19:16 INFO  TC002_LoginTest:14 - **********Starting TC002_LoginTest 
