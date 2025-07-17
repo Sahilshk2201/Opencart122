@@ -1,22 +1,23 @@
 /**
  * 
  */
-package testCases;
+package TestCases;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import pageObjects.AccountRegistrationPage;
-import pageObjects.CheckoutPage;
-import pageObjects.HomePage;
-import pageObjects.LoginPage;
-import pageObjects.MyAccountPage;
-import pageObjects.SearchPage;
-import pageObjects.ShoppingCartPage;
-import testBase.BaseClass;
+import PageObjects.AccountRegistrationPage;
+import PageObjects.CheckoutPage;
+import PageObjects.HomePage;
+import PageObjects.LoginPage;
+import PageObjects.MyAccountpage;
+import PageObjects.SearchPage;
+import PageObjects.ShoppingCartPage;
 
+@Test
 public class TC_006_EndToEndTest extends BaseClass {
-	@Test(groups= {"Master"})
 	public void endToendTest() throws InterruptedException
 	{
 	//Soft assertions
@@ -25,46 +26,46 @@ public class TC_006_EndToEndTest extends BaseClass {
 	//Account Registration
 	System.out.println("Account Registration................");
 	HomePage hp = new HomePage(driver);
-	hp.clickMyAccount();
-	hp.clickRegister();
+	hp.clickmyaccount();
+	hp.clickregister();
 	
 	AccountRegistrationPage regpage = new AccountRegistrationPage(driver);
-	regpage.setFirstName(randomeString().toUpperCase());
-	regpage.setLastName(randomeString().toUpperCase());
+	regpage.setFirstName(RandomeString().toUpperCase());
+	regpage.setLastName(RandomeString().toUpperCase());
 	
-	String email=randomeString() + "@gmail.com";
+	String email=RandomeString() + "@gmail.com";
 	regpage.setEmail(email);// randomly generated the email
 			
 	regpage.setTelephone("1234567");
 	regpage.setPassword("test123");
-	regpage.setConfirmPassword("test123");
-	regpage.setPrivacyPolicy();
-	regpage.clickContinue();
+	regpage.setcnfrmPassword("test123");
+	regpage.clickAgreeBtn();;
+	regpage.ClickContinueBtn();
 	Thread.sleep(3000);
 
-	String confmsg = regpage.getConfirmationMsg();
+	String confmsg = regpage.getCOnfirmationMessage();
 	System.out.println(confmsg);
 	
-	myassert.assertEquals(confmsg, "Your Account Has Been Created!"); //validation
+	AssertJUnit.assertEquals(confmsg, "Your Account Has Been Created!"); //validation
 	
-	MyAccountPage mc=new MyAccountPage(driver);
+	MyAccountpage mc=new MyAccountpage(driver);
 	mc.clickLogout();
 	Thread.sleep(3000);
 	
 	
 	//Login
 	System.out.println("Login to application...............");
-	hp.clickMyAccount();
-	hp.clickLogin();
+	hp.clickmyaccount();
+	hp.clicklogin();
 	
 	LoginPage lp=new LoginPage(driver);
-	lp.setEmail(email);
+	lp.setMailAddress(email);
 	lp.setPassword("test123");
-	lp.clickLogin();
+	lp.clickSubmit();;
 		
 	
-	System.out.println("Going to My Account Page? "+ mc.isMyAccountPageExists());
-	myassert.assertEquals(mc.isMyAccountPageExists(), true); //validation
+	System.out.println("Going to My Account Page? "+ mc.ismyAccountPageExists());
+	AssertJUnit.assertEquals(mc.ismyAccountPageExists(), true); //validation
 
 	
 	//search & add product to cart
@@ -83,7 +84,7 @@ public class TC_006_EndToEndTest extends BaseClass {
 	}
 	Thread.sleep(3000);
 	System.out.println("Added product to cart ? "+ sp.checkConfMsg());
-	myassert.assertEquals(sp.checkConfMsg(),true);
+	AssertJUnit.assertEquals(sp.checkConfMsg(),true);
 		
 		
 	//Shopping cart
@@ -94,7 +95,7 @@ public class TC_006_EndToEndTest extends BaseClass {
 	Thread.sleep(3000);
 	String totprice=sc.getTotalPrice();
 	System.out.println("total price is shopping cart: "+totprice);
-	myassert.assertEquals(totprice, "$246.40");   //validation
+	AssertJUnit.assertEquals(totprice, "$246.40");   //validation
 	sc.clickOnCheckout(); //navigate to checkout page
 	Thread.sleep(3000);
 	
@@ -103,9 +104,9 @@ public class TC_006_EndToEndTest extends BaseClass {
 	System.out.println("Checkout Product...............");
 	CheckoutPage ch=new CheckoutPage(driver);
 	
-	ch.setfirstName(randomeString().toUpperCase());
+	ch.setfirstName(RandomeString().toUpperCase());
 	Thread.sleep(1000);
-	ch.setlastName(randomeString().toUpperCase());
+	ch.setlastName(RandomeString().toUpperCase());
 	Thread.sleep(1000);
 	ch.setaddress1("address1");
 	Thread.sleep(1000);
@@ -134,7 +135,7 @@ public class TC_006_EndToEndTest extends BaseClass {
 	
 	String total_price_inOrderPage=ch.getTotalPriceBeforeConfOrder();
 	System.out.println("total price in confirmed order page:"+total_price_inOrderPage);
-	myassert.assertEquals(total_price_inOrderPage, "$207.00"); //validation
+	AssertJUnit.assertEquals(total_price_inOrderPage, "$207.00"); //validation
 	
 	//Below code works only if you configure SMTP for emails 
 	/*ch.clickOnConfirmOrder();

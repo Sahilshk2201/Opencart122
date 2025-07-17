@@ -70,6 +70,7 @@ WebElement msgAccountCreated;
 	 agree_btn.click();;
 }
  
+
  public void ClickContinueBtn() {
 	 continue_btn.click();
 //   sol2

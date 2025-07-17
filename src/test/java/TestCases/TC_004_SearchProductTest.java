@@ -1,11 +1,10 @@
-package testCases;
+package TestCases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import pageObjects.HomePage;
-import pageObjects.SearchPage;
-import testBase.BaseClass;
+import PageObjects.HomePage;
+import PageObjects.SearchPage;
 
 public class TC_004_SearchProductTest extends BaseClass {
 
